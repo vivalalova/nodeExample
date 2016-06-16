@@ -9,7 +9,11 @@ const passwordB = 'abcdefg';
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
-var Cat = mongoose.model('Cat', { name: String });
+var User = mongoose.model('user', {
+    name: String,
+    photo: String,
+    password: String
+});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -21,8 +25,8 @@ router.post('/', function(req, res, next) {
     var user = req.body
 
     //TODO: DB operating
-    var kitty = new Cat({ name: 'Zildjian' });
-    kitty.save(function(err) {
+    var newUser = new User(user);
+    newUser.save(function(err) {
         if (err) {
             console.log(err);
             return res.status(400).send({ 'message': 'fail' });
@@ -32,9 +36,9 @@ router.post('/', function(req, res, next) {
         }
     });
     //create success
-    
+
     //create fail
-    
+
 
     // var salt = bcrypt.genSaltSync(saltRounds);
     // var hash = bcrypt.hashSync(passwordA, salt);
