@@ -5,6 +5,12 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10;
 const passwordA = '12345678';
 const passwordB = 'abcdefg';
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+var Cat = mongoose.model('Cat', { name: String });
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     res.send('respond with a resource');
@@ -15,11 +21,20 @@ router.post('/', function(req, res, next) {
     var user = req.body
 
     //TODO: DB operating
-
+    var kitty = new Cat({ name: 'Zildjian' });
+    kitty.save(function(err) {
+        if (err) {
+            console.log(err);
+            return res.status(400).send({ 'message': 'fail' });
+        } else {
+            console.log('meow');
+            return res.send({ 'message': 'success' });
+        }
+    });
     //create success
-    return res.send({ 'message': 'success' });
+    
     //create fail
-    return res.status(400).send({ 'message': 'fail' });
+    
 
     // var salt = bcrypt.genSaltSync(saltRounds);
     // var hash = bcrypt.hashSync(passwordA, salt);
