@@ -26,12 +26,11 @@ router.post('/', function(req, res, next) {
 
     //TODO: DB operating
     var newUser = new User(user);
-    newUser.save(function(err) {
+    newUser.save(function(err,r) {
+        console.log(r)
         if (err) {
-            console.log(err);
-            return res.status(400).send({ 'message': 'fail' });
+            return res.status(400).send({ 'message': err });
         } else {
-            console.log('meow');
             return res.send({ 'message': 'success' });
         }
     });
