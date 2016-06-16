@@ -23,6 +23,9 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
     var user = req.body
+    
+    var salt = bcrypt.genSaltSync(saltRounds);
+    user.password = bcrypt.hashSync(user.password, salt)
 
     //TODO: DB operating
     var newUser = new User(user);
