@@ -16,17 +16,17 @@ router.post('/', function(req, res, next) {
 
 
 
-    var salt = bcrypt.genSaltSync(saltRounds);
-    var hash = bcrypt.hashSync(passwordA, salt);
-    console.log(hash)
+    // var salt = bcrypt.genSaltSync(saltRounds);
+    // var hash = bcrypt.hashSync(passwordA, salt);
+    // console.log(hash)
 
-    var success
+    // var success
 
-    success = bcrypt.compareSync(passwordA, hash)
-    console.log('passwordA' + success)
+    // success = bcrypt.compareSync(passwordA, hash)
+    // console.log('passwordA' + success)
 
-    success = bcrypt.compareSync(passwordB, hash)
-    console.log('passwordB' + success)
+    // success = bcrypt.compareSync(passwordB, hash)
+    // console.log('passwordB' + success)
 
     return res.send('kerkekrker post');
 })
