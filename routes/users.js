@@ -8,7 +8,10 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
 var User = mongoose.model('user', {
-    name: String,
+    name: {
+        type: String,
+        index: { unique: true }
+    },
     photo: String,
     password: String
 });
@@ -21,18 +24,18 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
     var user = req.body
-    
+
     var salt = bcrypt.genSaltSync(saltRounds);
     user.password = bcrypt.hashSync(user.password, salt)
 
     //TODO: DB operating
     var newUser = new User(user);
-    newUser.save(function(err,r) {
+    newUser.save(function(err, r) {
         console.log(r)
         if (err) {
             return res.status(400).send({ 'message': err });
         }
-        
+
         return res.send({ 'message': 'success' });
     });
 })
