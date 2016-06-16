@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    res.send('kerkekrker post');
 
     var salt = bcrypt.genSaltSync(saltRounds);
     var hash = bcrypt.hashSync(passwordA, salt);
@@ -24,6 +23,8 @@ router.post('/', function(req, res, next) {
 
     success = bcrypt.compareSync(passwordB, hash)
     console.log('passwordB' + success)
+
+    return res.send('kerkekrker post');
 })
 
 router.put('/', function(req, res, next) {
