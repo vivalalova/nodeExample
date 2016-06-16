@@ -10,7 +10,9 @@ mongoose.connect('mongodb://localhost/test');
 var User = mongoose.model('user', {
     name: {
         type: String,
-        index: { unique: true }
+        index: {
+            unique: true
+        }
     },
     photo: String,
     password: String
