@@ -31,9 +31,9 @@ router.post('/', function(req, res, next) {
         console.log(r)
         if (err) {
             return res.status(400).send({ 'message': err });
-        } else {
-            return res.send({ 'message': 'success' });
         }
+        
+        return res.send({ 'message': 'success' });
     });
 })
 
