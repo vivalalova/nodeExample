@@ -3,8 +3,6 @@ var router = express.Router();
 
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
-const passwordA = '12345678';
-const passwordB = 'abcdefg';
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
