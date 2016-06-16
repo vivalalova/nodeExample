@@ -35,25 +35,15 @@ router.post('/', function(req, res, next) {
             return res.send({ 'message': 'success' });
         }
     });
-    //create success
-
-    //create fail
-
-
-    // var salt = bcrypt.genSaltSync(saltRounds);
-    // var hash = bcrypt.hashSync(passwordA, salt);
-    // console.log(hash)
-
-    // var success
-
-    // success = bcrypt.compareSync(passwordA, hash)
-    // console.log('passwordA' + success)
-
-    // success = bcrypt.compareSync(passwordB, hash)
-    // console.log('passwordB' + success)
 })
 
 router.put('/', function(req, res, next) {
+    res.status(404).send('kerkekrker put');
+})
+
+router.post('/login', function(req, res, next) {
+    // success = bcrypt.compareSync(passwordA, hash)
+    // console.log('passwordA' + success)
     res.status(404).send('kerkekrker put');
 })
 
