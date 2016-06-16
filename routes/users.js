@@ -12,6 +12,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 
+    console.log(req.body);
+
+
+
     var salt = bcrypt.genSaltSync(saltRounds);
     var hash = bcrypt.hashSync(passwordA, salt);
     console.log(hash)
