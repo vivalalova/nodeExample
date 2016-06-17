@@ -2,13 +2,15 @@
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
 
+nvm install 6.2.1
+nvm use 6.2.1
+
 npm install express -g
 npm install express-generator -g
 npm install nodemon -g
 npm install pm2 -g
 
-nvm install 6.2.1
-nvm use 6.2.1
+
 ```
 mongoDB請參考官網
 
